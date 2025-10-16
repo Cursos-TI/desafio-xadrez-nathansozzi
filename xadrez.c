@@ -7,6 +7,7 @@ int main() {
     const int MOVIMENTOS_TORRE = 5;
     const int MOVIMENTOS_BISPO = 5;
     const int MOVIMENTOS_RAINHA = 8;
+    const int MOVIMENTOS_CAVALO = 1;
 
 
     //MOVIMENTAÇÃO TORRE
@@ -41,6 +42,19 @@ int main() {
         r++;
     } while (r<=MOVIMENTOS_RAINHA);
 
+    //MOVIMENTAÇÃO CAVALO
+    // 1 casa em L (2 para baixo e 1 para direita)
+    printf("\n=== MOVIMENTOS DO CAVALO ===\n");
+    int vert = 1;
+    for (int c = 1;c<=MOVIMENTOS_CAVALO;c++) {
+        printf("Movimento %d:\n", c);
+        do {
+            printf("Baixo\n");
+            vert++;
+        } while (vert<=2);
+        printf("Esquerda\n");
+        printf("\n");
+    }
 
     return 0;
 }
