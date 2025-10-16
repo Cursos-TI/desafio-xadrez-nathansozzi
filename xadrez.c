@@ -1,60 +1,88 @@
 #include <stdio.h>
 
+// ======================================================
+// CONSTANTES GLOBAIS DE MOVIMENTO
+// ======================================================
+const int MOVIMENTOS_TORRE = 5;
+const int MOVIMENTOS_BISPO = 5;
+const int MOVIMENTOS_RAINHA = 8;
+const int MOVIMENTOS_CAVALO = 1; // TOTAL DE MOVIMENTOS COMPLETOS DO CAVALO
+
+// ==================
+// FUNÇÕES RECURSIVAS
+// ==================
+
+// MOVIMENTAÇÃO TORRE
+void moverTorre(int passo, int limite) {
+    if (passo > limite) return;
+    printf("Movimento %d:\n", passo);
+    printf("Direita\n\n");
+    moverTorre(passo + 1, limite);
+}
+
+// MOVIMENTAÇÃO RAINHA
+void moverRainha (int passo, int limite) {
+    if (passo > limite) return;
+    printf("Movimento: %d\n", passo);
+    printf("Esquerda\n");
+    moverRainha(passo + 1, limite);
+}
+
+// MOVIMENTAÇÃO BISPO
+void moverBispo (int passo, int limite) {
+    if (passo > limite) return;
+    printf("Movimento: %d\n", passo);
+
+    for (int v = 1; v <= 1; v++) { //Movimentação vertical
+        printf("Cima\n");
+
+        for (int h = 1; h <= 1; h++) { //Movimentação horizontal
+            printf("Direita\n");
+        }
+    }
+    printf("\n");
+    moverBispo(passo + 1, limite);
+}
+
+// ==========================
+// FUNÇÃO COM LOOPS COMPLEXOS
+// ==========================
+
+// MOVIMENTAÇÃO CAVALO
+void moverCavalo() {
+    for (int v = 1; v <= 3; v++) {
+        if (v == 3) {
+            for (int h = 1; h <= 1; h++) {
+                if (h == 1) {
+                    printf("Direita\n");
+                    break;
+                }
+            }
+        } else {
+            printf("Cima\n");
+            continue;
+        }
+    }
+    printf("\n");
+}
 
 int main() {
 
-    // CONSTANTES DE MOVIMENTOS
-    const int MOVIMENTOS_TORRE = 5;
-    const int MOVIMENTOS_BISPO = 5;
-    const int MOVIMENTOS_RAINHA = 8;
-    const int MOVIMENTOS_CAVALO = 1;
-
-
-    //MOVIMENTAÇÃO TORRE
-    // 5 casas para a direita
+    // CHAMADA PARA MOVER A TORRE
     printf("\n=== MOVIMENTOS DA TORRE ===\n");
-    int t = 1;
-    while (t <= MOVIMENTOS_TORRE) {
-        printf("Movimento %d:\n", t);
-        printf("Direita\n");
-        printf("\n");
-        t++;
-    }
+    moverTorre(1, MOVIMENTOS_TORRE);
 
-    //MOVIMENTAÇÃO BISPO
-    // 5 casas na diagonal superior direita
+    // CHAMADA PARA MOVER O BISPO
     printf("\n=== MOVIMENTOS DO BISPO ===\n");
-    for (int b = 1;b<=MOVIMENTOS_BISPO;b++) {
-        printf("Movimento %d:\n", b);
-        printf("Cima\n");
-        printf("Direita\n");
-        printf("\n");
-    }
+    moverBispo(1, MOVIMENTOS_BISPO);
 
-    //MOVIMENTAÇÃO RAINHA
-    // 8 casas para a esquerda
+    // CHAMADA PARA MOVER A RAINHA
     printf("\n=== MOVIMENTOS DA RAINHA ===\n");
-    int r = 1;
-    do {
-        printf("Movimento %d:\n", r);
-        printf("Esquerda\n");
-        printf("\n");
-        r++;
-    } while (r<=MOVIMENTOS_RAINHA);
+    moverRainha(1, MOVIMENTOS_RAINHA);
 
-    //MOVIMENTAÇÃO CAVALO
-    // 1 casa em L (2 para baixo e 1 para esquerda)
+    // CHAMADA PARA MOVER O CAVALO
     printf("\n=== MOVIMENTOS DO CAVALO ===\n");
-    int vert = 1;
-    for (int c = 1;c<=MOVIMENTOS_CAVALO;c++) {
-        printf("Movimento %d:\n", c);
-        do {
-            printf("Baixo\n");
-            vert++;
-        } while (vert<=2);
-        printf("Esquerda\n");
-        printf("\n");
-    }
+    moverCavalo();
 
     return 0;
 }
