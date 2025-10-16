@@ -43,7 +43,7 @@ int main() {
     } while (r<=MOVIMENTOS_RAINHA);
 
     //MOVIMENTAÇÃO CAVALO
-    // 1 casa em L (2 para baixo e 1 para direita)
+    // 1 casa em L (2 para baixo e 1 para esquerda)
     printf("\n=== MOVIMENTOS DO CAVALO ===\n");
     int vert = 1;
     for (int c = 1;c<=MOVIMENTOS_CAVALO;c++) {
