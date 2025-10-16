@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-// ======================================================
+
+// ===============================
 // CONSTANTES GLOBAIS DE MOVIMENTO
-// ======================================================
+// ===============================
 const int MOVIMENTOS_TORRE = 5;
 const int MOVIMENTOS_BISPO = 5;
 const int MOVIMENTOS_RAINHA = 8;
 const int MOVIMENTOS_CAVALO = 1; // TOTAL DE MOVIMENTOS COMPLETOS DO CAVALO
 
+
 // ==================
 // FUNÇÕES RECURSIVAS
 // ==================
-
 // MOVIMENTAÇÃO TORRE
 void moverTorre(int passo, int limite) {
     if (passo > limite) return;
@@ -20,6 +21,7 @@ void moverTorre(int passo, int limite) {
     moverTorre(passo + 1, limite);
 }
 
+
 // MOVIMENTAÇÃO RAINHA
 void moverRainha (int passo, int limite) {
     if (passo > limite) return;
@@ -27,6 +29,7 @@ void moverRainha (int passo, int limite) {
     printf("Esquerda\n");
     moverRainha(passo + 1, limite);
 }
+
 
 // MOVIMENTAÇÃO BISPO
 void moverBispo (int passo, int limite) {
@@ -44,10 +47,10 @@ void moverBispo (int passo, int limite) {
     moverBispo(passo + 1, limite);
 }
 
+
 // ==========================
 // FUNÇÃO COM LOOPS COMPLEXOS
 // ==========================
-
 // MOVIMENTAÇÃO CAVALO
 void moverCavalo() {
     for (int v = 1; v <= 3; v++) {
@@ -66,6 +69,10 @@ void moverCavalo() {
     printf("\n");
 }
 
+
+// ================
+// FUNÇÃO PRINCIPAL
+// ================
 int main() {
 
     // CHAMADA PARA MOVER A TORRE
@@ -84,5 +91,7 @@ int main() {
     printf("\n=== MOVIMENTOS DO CAVALO ===\n");
     moverCavalo();
 
+    // FIM DOS MOVIMENTOS
+    printf("=== FIM DOS MOVIMENTOS ===\n");
     return 0;
 }
